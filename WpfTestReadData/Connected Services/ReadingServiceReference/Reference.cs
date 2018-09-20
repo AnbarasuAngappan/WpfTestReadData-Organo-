@@ -8,50 +8,50 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WpfTestReadData.ReadDataService {
+namespace WpfTestReadData.ReadingServiceReference {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ReadDataService.IReadData")]
-    public interface IReadData {
+    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="ReadingServiceReference.IReadService")]
+    public interface IReadService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReadData/GetHousdetails", ReplyAction="http://tempuri.org/IReadData/GetHousdetailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReadService/GetHousdetails", ReplyAction="http://tempuri.org/IReadService/GetHousdetailsResponse")]
         System.Data.DataTable GetHousdetails(string _houseID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReadData/GetHousdetails", ReplyAction="http://tempuri.org/IReadData/GetHousdetailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReadService/GetHousdetails", ReplyAction="http://tempuri.org/IReadService/GetHousdetailsResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> GetHousdetailsAsync(string _houseID);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReadData/GetHouseDetails", ReplyAction="http://tempuri.org/IReadData/GetHouseDetailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReadService/GetHouseDetails", ReplyAction="http://tempuri.org/IReadService/GetHouseDetailsResponse")]
         System.Data.DataTable GetHouseDetails();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReadData/GetHouseDetails", ReplyAction="http://tempuri.org/IReadData/GetHouseDetailsResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IReadService/GetHouseDetails", ReplyAction="http://tempuri.org/IReadService/GetHouseDetailsResponse")]
         System.Threading.Tasks.Task<System.Data.DataTable> GetHouseDetailsAsync();
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface IReadDataChannel : WpfTestReadData.ReadDataService.IReadData, System.ServiceModel.IClientChannel {
+    public interface IReadServiceChannel : WpfTestReadData.ReadingServiceReference.IReadService, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class ReadDataClient : System.ServiceModel.ClientBase<WpfTestReadData.ReadDataService.IReadData>, WpfTestReadData.ReadDataService.IReadData {
+    public partial class ReadServiceClient : System.ServiceModel.ClientBase<WpfTestReadData.ReadingServiceReference.IReadService>, WpfTestReadData.ReadingServiceReference.IReadService {
         
-        public ReadDataClient() {
+        public ReadServiceClient() {
         }
         
-        public ReadDataClient(string endpointConfigurationName) : 
+        public ReadServiceClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
         }
         
-        public ReadDataClient(string endpointConfigurationName, string remoteAddress) : 
+        public ReadServiceClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ReadDataClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ReadServiceClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
         }
         
-        public ReadDataClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
+        public ReadServiceClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
         }
         

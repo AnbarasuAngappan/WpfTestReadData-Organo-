@@ -27,7 +27,7 @@ namespace WpfTestReadData
     public partial class MainWindow : Window
     {
         //private ObservableCollection<Graph> details;
-        private ReadDataService.ReadDataClient readDataClient = new ReadDataService.ReadDataClient("BasicHttpBinding_IReadData");
+        private ReadingServiceReference.ReadServiceClient readDataClient = new ReadingServiceReference.ReadServiceClient("BasicHttpBinding_IReadService");
         private UberDLMX.DLMX dLMX = new UberDLMX.DLMX();
         private DataTable objdataTableWriteDLMX;
 

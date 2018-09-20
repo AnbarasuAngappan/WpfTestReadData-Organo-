@@ -76,7 +76,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Connected Services\ReadDataService\Reference.cs">
+    <Compile Include="Connected Services\ReadingServiceReference\Reference.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Reference.svcmap</DependentUpon>
@@ -108,16 +108,16 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Connected Services\ReadDataService\item.xsd">
+    <None Include="Connected Services\ReadingServiceReference\ReadService.wsdl" />
+    <None Include="Connected Services\ReadingServiceReference\ReadService.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ReadDataService\item1.xsd">
+    <None Include="Connected Services\ReadingServiceReference\ReadService1.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ReadDataService\item2.xsd">
+    <None Include="Connected Services\ReadingServiceReference\ReadService2.xsd">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Connected Services\ReadDataService\ReadData.wsdl" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\System.Data.DataTable.datasource" />
     <None Include="Properties\Settings.settings">
@@ -134,25 +134,25 @@
     <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <WCFMetadataStorage Include="Connected Services\ReadDataService\" />
+    <Resource Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ReadDataService\item.disco" />
+    <WCFMetadataStorage Include="Connected Services\ReadingServiceReference\" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ReadDataService\configuration91.svcinfo" />
+    <None Include="Connected Services\ReadingServiceReference\ReadService.disco" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ReadDataService\configuration.svcinfo" />
+    <None Include="Connected Services\ReadingServiceReference\configuration91.svcinfo" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Connected Services\ReadDataService\Reference.svcmap">
+    <None Include="Connected Services\ReadingServiceReference\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Connected Services\ReadingServiceReference\Reference.svcmap">
       <Generator>WCF Proxy Generator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="ReadMe.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
