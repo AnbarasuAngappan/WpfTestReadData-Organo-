@@ -16,11 +16,12 @@
 
         </Grid.ColumnDefinitions>
         <Grid Grid.Row="0">
-            <Button Content="Read" HorizontalAlignment="Left" Margin="423,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
-            <TextBox Name="txtHouseID" HorizontalAlignment="Left" Height="23" Margin="10,7,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="397"/>
-            <Button Content="Write" HorizontalAlignment="Left" Margin="529,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+            <Button Content="Read" HorizontalAlignment="Left" Margin="548,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+            <TextBox Name="txtHouseID" HorizontalAlignment="Left" Height="23" Margin="134,10,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="397"/>
+            <Button Content="Write" HorizontalAlignment="Left" Margin="639,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
+            <Label Content="Enter the Society ID:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="119"/>
         </Grid>
-        <DataGrid Grid.Row="1" Name="houseDetailsGrid" HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top" Width="auto">
+        <DataGrid IsReadOnly="True" Grid.Row="1" Name="houseDetailsGrid" HorizontalAlignment="Left" Height="auto"  VerticalAlignment="Top" Width="auto">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="HouseID" Binding="{Binding HiD}" Width="250"></DataGridTextColumn>
                 <DataGridTextColumn Header="SocietyID" Binding="{Binding SiD}" Width="250"></DataGridTextColumn>

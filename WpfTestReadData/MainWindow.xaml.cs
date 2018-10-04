@@ -27,45 +27,74 @@ namespace WpfTestReadData
     public partial class MainWindow : Window
     {
         //private ObservableCollection<Graph> details;
-        private ReadingServiceReference.ReadServiceClient readDataClient = new ReadingServiceReference.ReadServiceClient("BasicHttpBinding_IReadService");
+        private ReadingServiceReference.ReadDataClient readDataClient = new ReadingServiceReference.ReadDataClient("BasicHttpBinding_IReadData");
         private UberDLMX.DLMX dLMX = new UberDLMX.DLMX();
         private DataTable objdataTableWriteDLMX;
+        private string _societyID = null;
+        private string _apiKey = null;
 
         public MainWindow()
         {
             InitializeComponent();
+            txtHouseID.Focus();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                string _societyID = txtHouseID.Text.Trim();
-                if (readDataClient != null)
+                _societyID = txtHouseID.Text.Trim();
+                _apiKey = System.Configuration.ConfigurationManager.AppSettings["APIKey"];
+                //readDataClient.Credentials = System.Net.CredentialCache.DefaultCredentials;
+                if (_societyID != null && _societyID.Length > 0 && _apiKey != null && _apiKey.Length > 0)
                 {
-                    DataTable objHouseDetailsdataTable = new DataTable();
-                    objHouseDetailsdataTable = readDataClient.GetHouseDetails();
-                    //objHouseDetailsdataTable = readDataClient.GetHousdetails(_societyID);
-                    //WriteTableStruct();
-                    //ReadHousedetails(objHouseDetailsdataTable);
-
-                    var graph = new ObservableCollection<Graph>();
-                    foreach (DataRow row in objHouseDetailsdataTable.Rows)
+                    if (readDataClient != null)
                     {
-                        graph.Add(new Graph()
-                        {
-                            SiD = (string)row["SiD"],
-                            HiD = (string)row["HiD"],
-                            MiD = (string)row["MiD"],
-                            PiD = (Int16)row["Pid"],
-                            //metersetting = (string)row["metersetting"],
-                            IPAddress = (string)row["IPAddress"],
-                            Port = (string)row["Port"],
-                        });
-                    }
-                    houseDetailsGrid.ItemsSource = graph;
-                    houseDetailsGrid.AutoGenerateColumns = false;
+                        DataTable objHouseDetailsdataTable = new DataTable();
+                        //objHouseDetailsdataTable = readDataClient.GetHouseDetails();
+                        objHouseDetailsdataTable = readDataClient.GetHousdetails(_societyID,_apiKey);
+                        //WriteTableStruct();
+                        //ReadHousedetails(objHouseDetailsdataTable);
 
+                        if (objHouseDetailsdataTable != null && objHouseDetailsdataTable.Rows.Count > 0)
+                        {
+                            var graph = new ObservableCollection<Graph>();
+                            foreach (DataRow row in objHouseDetailsdataTable.Rows)
+                            {
+                                graph.Add(new Graph()
+                                {
+                                    SiD = (string)row["SiD"],
+                                    HiD = (string)row["HiD"],
+                                    MiD = (string)row["MiD"],
+                                    PiD = (Int16)row["Pid"],
+                                    //metersetting = (string)row["metersetting"],
+                                    IPAddress = (string)row["IPAddress"],
+                                    Port = (string)row["Port"],
+                                });
+                            }
+                            houseDetailsGrid.ItemsSource = graph;
+                            houseDetailsGrid.AutoGenerateColumns = false;
+                        }
+                        else
+                        {
+                            if (houseDetailsGrid != null)
+                            {
+                                houseDetailsGrid.ItemsSource = null;
+                                MessageBox.Show("No records Found", "Information", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                                txtHouseID.Focus();
+                            }
+                            else
+                            {
+                                MessageBox.Show("No records Found", "Information", MessageBoxButton.OK, MessageBoxImage.Asterisk);
+                                txtHouseID.Focus();
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("PLease Enter the Society ID", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                    txtHouseID.Focus();
                 }
             }
             catch (Exception ex)
@@ -74,10 +103,9 @@ namespace WpfTestReadData
             }
             finally
             {
-                readDataClient = null;
-                dLMX = null;
+                //readDataClient = null;
+                //dLMX = null;
             }
-
         }
 
         public void ReadHousedetails(DataTable objReadHousedataTable)
@@ -141,7 +169,7 @@ namespace WpfTestReadData
             }
             finally
             {
-                objdataTableWriteDLMX = null;
+                //objdataTableWriteDLMX = null;
             }
         }
 
